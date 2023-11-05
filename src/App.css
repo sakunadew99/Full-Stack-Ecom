@@ -1,3 +1,8 @@
+:root{
+  --main-color: #f44336;
+  --black:#000;
+}
+
 .App {
   text-align: center;
 }
