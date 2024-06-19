@@ -17,15 +17,15 @@ function App() {
     <div>
       <BrowserRouter>
         <Navbar />
-        <Routes>
+         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/men" element={<ShopCategory banner={men_banner} category="men" />} />
-          <Route path="/women" element={<ShopCategory banner={women_banner} category="women" />} />
-          <Route path="/kid" element={<ShopCategory banner={kid_banner} category="kid" />} />
+          <Route path="/mens" element={<ShopCategory banner={men_banner} category="men" />} />
+          <Route path="/womens" element={<ShopCategory banner={women_banner} category="women" />} />
+          <Route path="/kids" element={<ShopCategory banner={kid_banner} category="kid" />} />
           <Route path="/product" element={<Product />}>
             <Route path=":productId" element={<Product />} />
           </Route>
-          <Route path="/Card" element={<Card />} />
+          <Route path="/card" element={<Card />} />
           <Route path="/login" element={<LoginSignUp />} />
         </Routes>
         <Footer />

@@ -1,11 +1,13 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom"; // Import Link from react-router-dom
+import React, { useContext, useState } from "react";
+import { Link } from "react-router-dom";
 import './Navbar.css';
 import logo from '../Assets/logo.png';
 import cart_item from '../Assets/cart_icon.png';
+import { ShopContext } from "../../Context/ShopContext";
 
 const Navbar = () => {
     const [menu, setMenu] = useState("Home");
+    const {getTotalCartItems} = useContext(ShopContext);
 
     const handleMenuClick = (menuItem) => {
         setMenu(menuItem);
@@ -14,35 +16,31 @@ const Navbar = () => {
     return (
         <div className="navbar">
             <div className="nav-logo">
-                <img src={logo} alt="" />
-                <p>Shopper</p>
+                <img src={logo} alt="Shopper Logo" />
+                <p>SHOPPER</p>
             </div>
             <ul className="nav-menu">
-                <li onClick={() => handleMenuClick("Home")}>
-                    <Link style={{textDecoration:'none'}} to="/">Home</Link>
-                    {menu === "Home" && <hr />}
+                <li onClick={() => handleMenuClick("shop")}>
+                    <Link to="/" className={menu === "shop" ? "active" : ""}>Shop</Link>
                 </li>
-                <li onClick={() => handleMenuClick("Men")}>
-                    <Link style={{textDecoration:'none'}} to="/Men">Men</Link>
-                    {menu === "Men" && <hr />}
+                <li onClick={() => handleMenuClick("mens")}>
+                    <Link to="/mens" className={menu === "mens" ? "active" : ""}>Mens</Link>
                 </li>
-                <li onClick={() => handleMenuClick("Women")}>
-                    <Link style={{textDecoration:'none'}} to="/Women">Women</Link>
-                    {menu === "Women" && <hr />}
+                <li onClick={() => handleMenuClick("womens")}>
+                    <Link to="/womens" className={menu === "womens" ? "active" : ""}>Womens</Link>
                 </li>
-                <li onClick={() => handleMenuClick("Kids")}>
-                    <Link style={{textDecoration:'none'}} to="/Kids">Kids</Link>
-                    {menu === "Kids" && <hr />}
+                <li onClick={() => handleMenuClick("kids")}>
+                    <Link to="/kids" className={menu === "kids" ? "active" : ""}>Kids</Link>
                 </li>
             </ul>
             <div className="nav-login-cart">
-                <Link style={{textDecoration:'none'}} to="/login">
-                    <button>Login</button>
+                <Link to="/login">
+                    <button className="login-button">Login</button>
                 </Link>
-                <Link style={{textDecoration:'none'}}  to="/Cart">
-                    <img src={cart_item} alt="" />
+                <Link to="/cart" className="cart-link">
+                    <img src={cart_item} alt="Cart" />
+                    <div className="nav-cart-count">{getTotalCartItems}</div>
                 </Link>
-                <div className="nav-cart-count">0</div>
             </div>
         </div>
     );

@@ -11,24 +11,24 @@ const Hero = () => {
         <div className='hero'>
             <div className='hero-left'>
                 <h1>Shop With Us</h1>
-
-                <div>
-                    <div className='hand-hand-icon'>
-                        <p>new</p>
-                        <img src={hand_icon} alt="" />
-                    </div>
-
-                    <p>collections</p>
-                    <p>for everyone</p>
-
+                <div className='hero-subtitle'>
+                    <p>New collections for everyone</p>
                 </div>
-                <div className='hero-latest-btn'>
-                    <div>Latest Collection</div>
-                    <img src={arrow_icon} alt="" />
+                <p className='hero-description'>
+                    Discover the latest trends in fashion and enjoy an unparalleled shopping experience. Find your style and express yourself with our new collection.
+                </p>
+                <div className='hero-buttons'>
+                    <div className='hero-latest-btn'>
+                        <div>Latest Collection</div>
+                        <img src={arrow_icon} alt="Arrow Icon" />
+                    </div>
+                    <Link to='/shop' className='hero-shop-btn'>
+                        Start Shopping
+                    </Link>
                 </div>
             </div>
             <div className='hero-right'>
-                <img src={hero_image} alt="" />
+                <img src={hero_image} alt="Hero" />
             </div>
         </div>
     )
