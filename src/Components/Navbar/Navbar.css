@@ -1,85 +1,191 @@
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
+/* General reset and box sizing */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.nav-logo{
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 24px;
-    font-weight: 400;
-    color: #000;
+body {
+    font-family: 'Arial', sans-serif;
 }
 
-.nav-menu{
+.navbar {
     display: flex;
     align-items: center;
+    justify-content: space-between;
+    background-color: #333;
+    padding: 0 40px;
+    height: 70px;
+    color: white;
+}
+
+.nav-logo {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.nav-logo p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.nav-menu {
     list-style: none;
-    gap:50px;
-    color: #626262;
-    font-size: 20px;
-    font-weight: 400;
-    
-}
-
-.nav-menu li{
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    cursor: pointer;
-    
+    gap: 20px;
 }
 
-.nav-menu hr{
-    border: none;
-    width: 80%;
-    height: 3px;
-    border-radius: 10px;
-    background: #d30000;
+.nav-menu li {
+    position: relative;
 }
 
-.nav-menu li:hover{
-    color: #000;
+.nav-menu a {
+    text-decoration: none;
+    color: white;
+    padding: 10px;
+    transition: color 0.3s ease;
 }
 
-.nav-login-cart{
+.nav-menu a:hover {
+    color: #f0a500;
+}
+
+.nav-menu .active {
+    color: #f0a500; /* Different color for the active link */
+}
+
+.nav-menu .active::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -5px;
+    height: 2px;
+    background-color: #f0a500;
+}
+
+.nav-login-cart {
     display: flex;
     align-items: center;
     gap: 20px;
 }
 
-.nav-login-cart button{
-    width: 150px;
-    height: 40px;
-    outline: none;
-    border: 1px solid #7a7a7a;
-    border-radius: 70px;
-    color: #515151;
-    font-size: 20px;
-    font-weight: 500;
-    background: #fff;
+.login-button {
+    background-color: #f0a500;
+    color: white;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 40px;
     cursor: pointer;
+    transition: background-color 0.3s ease;
 }
 
-.nav-login-cart button:active{
-    background: #e6e6e6;
+.login-button:hover {
+    background-color: #d48e00;
 }
 
-.nav-cart-count{
+.cart-link {
+    display: flex;
+    align-items: center;
+    position: relative;
+    color: white;
+}
+
+.cart-link img {
+    height: 30px;
+}
+
+.nav-cart-count {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #f0a500;
+    color: white;
+    border-radius: 50%;
     width: 20px;
     height: 20px;
     display: flex;
-    justify-content: center;
     align-items: center;
-    margin-top: -35px;
-    margin-left: -35px;
-    border-radius: 11px;
-    font-size: 14px;
-    background-color: #d30000;
-    color: #fff;
+    justify-content: center;
+    font-size: 0.8em;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        height: auto;
+        padding: 10px 20px;
+    }
+
+    .nav-logo {
+        margin-bottom: 10px;
+    }
+
+    .nav-menu {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .nav-menu a {
+        padding: 10px 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .nav-login-cart {
+        flex-direction: column;
+        gap: 10px;
+        width: 100%;
+    }
+
+    .login-button {
+        width: 100%;
+        text-align: center;
+    }
+
+    .cart-link {
+        justify-content: flex-start;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .nav-logo p {
+        font-size: 1.2em;
+    }
+
+    .nav-menu {
+        gap: 5px;
+    }
+
+    .nav-menu a {
+        padding: 8px 10px;
+        font-size: 0.9em;
+    }
+
+    .login-button {
+        padding: 8px 15px;
+    }
+
+    .cart-link img {
+        height: 25px;
+    }
+
+    .nav-cart-count {
+        width: 18px;
+        height: 18px;
+        font-size: 0.7em;
+    }
 }
